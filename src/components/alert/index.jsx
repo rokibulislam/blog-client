@@ -1,10 +1,12 @@
 import React from 'react'
+import './styles.scss'
 
-const Alert = () => {
+const Alert = ({ message, variant, onClose }) => {
     return (
-        <>
-            Alert
-        </>
+        <div className={'alert alert-' + (variant || 'primary' )}>
+            { message }
+            <button type="button" onClick={onClose} class="alert-close">X</button>
+        </div>
     )
 }
 

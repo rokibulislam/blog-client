@@ -5,10 +5,10 @@ import Navigation from './components/navigation'
 const App = () => {
   return (
     <div className="App">
-        <div>
-          <Navigation  />
+        <Navigation  />
+        <div className="container">
+          <AppRoutes />
         </div>
-        <AppRoutes />
     </div>
   );
 }

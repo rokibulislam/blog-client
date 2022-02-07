@@ -1,0 +1,15 @@
+.header-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 12px;
+  background: #f7f7f7;
+  border-radius: 10px;
+}
+
+.postlist {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

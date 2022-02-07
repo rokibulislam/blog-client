@@ -1,10 +1,15 @@
-import React from 'react'
+import React  from 'react'
+import './styles.scss'
 
-const Modal = () => {
+const Modal = ({ show, children }) => {
+    const showHideClassName = show ? "modal display-block" : "modal display-none";
+
     return (
-        <>
-            Modal
-        </>
+        <div className={showHideClassName}>
+            <div className="modal-main">
+                {children}
+            </div>
+        </div>
     )
 }
 

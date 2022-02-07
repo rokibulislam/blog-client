@@ -1,0 +1,29 @@
+.pagination {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+
+  .page-link {
+    position: relative;
+    display: block;
+    padding: 0.6rem 1rem;
+    line-height: 1.3rem;
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    text-decoration: none;
+  }
+
+  .page-item.active .page-link {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+
+  .page-item.disabled .page-link {
+    color: #6c757d;
+    cursor: auto;
+    background-color: #fff;
+    border-color: #dee2e6;
+  }
+}
