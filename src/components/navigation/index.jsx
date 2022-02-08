@@ -22,7 +22,7 @@ const Navigation = ( { user, onlogout }) => {
                             user ? (
                                 <>
                                 <li className="nav-item">
-                                    <Link to="/logout" onClick={handleLogout} className="nav-link"> Logout </Link>
+                                    <Link to="/logout" onClick={handleLogout} className="nav-link button button-danger"> Logout </Link>
                                 </li>
                                 </>
                             ) : (

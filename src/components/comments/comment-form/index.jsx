@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './styles.scss'
+import Button from '../../../components/button'
 
 const CommentForm = ({ onSubmit }) => {
     
@@ -30,6 +31,7 @@ const CommentForm = ({ onSubmit }) => {
                 </div>
 
                 <div className="form-group">
+                    <Button type="submit" label="Add Comment" variant="primary" />
                     <button type="submit" className="button button-primary"> Submit  </button>
                 </div>
             </form>

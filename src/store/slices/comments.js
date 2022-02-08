@@ -1,8 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import httpService from '../../services/httpService'
 
+import { insertReplyIntoComment } from '../../utils/helpers'
+
 export const fetchComments = createAsyncThunk('comments/fetchComments', async (id) => {
     let comments = await httpService.get(`/post/${id}/comment`)
+   
     return comments.data;
 })
 
@@ -15,18 +18,29 @@ export const addComment = createAsyncThunk('comments/addComment', async ({ conte
             author: author.id
         }
     );
-    return comment.data
+    return comment
 })
 
 export const addReply = createAsyncThunk('posts/addReply', async ({ parent, content, post }) => {
-    console.log('add reply on comment');
-    let comment = await httpService.post(
-        `/post/${post}/comment`,
+    // let comment = await httpService.post(
+    //     `/post/${post}/comment`,
+    //     {
+    //         content, 
+    //         post,
+    //         // author: author.id,
+    //         parent: parent,
+    //     }
+    // );  
+
+    // return comment;
+    
+    let reply = await httpService.post(
+        `/post/${post}/comment/${parent}/reply`,
         {
-            parent, 
             content
         }
     );
+    return reply;
 });
 
 
@@ -58,7 +72,7 @@ export const commentSlice = createSlice({
         },
         [addComment.fulfilled]: (state, action) => {
             state.status = 'succeeded';
-            state.items.data = [{...action.payload}, ...state.items];
+            state.items = [{...action.payload.data}, ...state.items];
         },
         [addComment.rejected]: (state, action) => {
             state.error = action.error.message;
@@ -68,6 +82,9 @@ export const commentSlice = createSlice({
         },
         [addReply.fulfilled]: (state, action) => {
             state.status = 'succeeded';
+            // console.log(.parent);
+            console.log(state.items);
+            state.items = insertReplyIntoComment(state.items, action.payload.data.parent, action.payload.data);
         },
         [addReply.rejected]: (state, action) => {
             state.error = action.error.message;

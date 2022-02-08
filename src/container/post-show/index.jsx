@@ -6,6 +6,7 @@ import { fetchComments, addComment } from '../../store/slices/comments'
 import PostSingle from '../../components/posts/post-single'
 import CommentForm from '../../components/comments/comment-form'
 import Comment from '../../components/comments/comment'
+import CommentList from '../../components/comments/comment-list'
 
 const PostShow = () => {
     const dispatch = useDispatch();
@@ -17,8 +18,7 @@ const PostShow = () => {
     useEffect( () => {
         dispatch(fetchSinglePost(id));
         dispatch(fetchComments(id));
-    }, [dispatch, id]);
-
+    }, []);
 
     const commentOnPost = (content) => {
        
@@ -28,7 +28,7 @@ const PostShow = () => {
             author: user
         }))
     }
-
+   
     return (
         <>
         <PostSingle post={post}/>
@@ -36,19 +36,16 @@ const PostShow = () => {
                 <CommentForm onSubmit={commentOnPost}/> 
             ) : (
                 <>
-                    <p> please login to comment </p>
-                    <Link to='/login'> Login </Link>
+                    <p> please login to comment <Link to='/login' className="button button-primary"> Login </Link> </p>
+                    
                 </> 
             )} 
 
         <div className="comment-section">
-        {  comments.status === 'loading' ? (
-                <> Loading  </>
-            ) : [
-            comments.length > 0 ? ( comments.map( item => <Comment postId={id} item={item} key={item._id} /> ) ) :  
-                ( <p> no comments found </p> )
-            ]
-        }
+            {
+                comments.length > 0 ? ( <CommentList postId={id} items={comments} /> ) : 
+                    ( <p> no comments found </p> )
+            }   
         </div>
         </>
     )

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { register } from '../../store/slices/user' 
+import Button from '../../components/button'
 
 const Register = () => {
     let navigate = useNavigate();
@@ -62,7 +63,7 @@ const Register = () => {
             </div> */}
 
             <div className='form-group'>
-                <button type='submit' className="button button-primary"> Register </button>
+                <Button type="submit" label="Register" variant="primary" />
             </div>
         </form>
     )

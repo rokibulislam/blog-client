@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate,useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { login } from '../../store/slices/user'
+import Button from '../../components/button'
 
 const Login = () => {
     let navigate = useNavigate();
@@ -42,7 +43,7 @@ const Login = () => {
             </div>
 
             <div className='form-group'>
-                <button type='submit' className="button button-primary"> Log In </button>
+                <Button type="submit" label="Log In" variant="primary" />
             </div>
         </form>
     )

@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Modal from '../../modal'
 import Alert from '../../alert'
+import Button from '../../button'
+
 const PostAdd = ({handleSubmit}) => {
     const [input, setInput ] = useState ({
         title: '',
@@ -38,10 +40,8 @@ const PostAdd = ({handleSubmit}) => {
 
     return (
     <>
-        <button
-            onClick={handleOnClick}
-            className="button button-primary"
-        > Create New Post </button>
+        <Button type="button" onClick={handleOnClick} label="Create New Post" variant="primary" />
+        {/* <button onClick={handleOnClick} className="button button-primary" > Create New Post </button> */}
 
 
         <Modal show={show}>

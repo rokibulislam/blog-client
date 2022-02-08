@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Button from '../../button'
 
 const ReplyForm = ({ parent, onReply, onCancelReply }) => {
     const [reply, setReply] = useState({ name: '',  comment: '' });
@@ -28,8 +29,10 @@ const ReplyForm = ({ parent, onReply, onCancelReply }) => {
             </div>
 
             <div className="form-group">
-                <button type="submit"  className="button button-primary"> Reply </button>
-                <button type="button" className="button button-link" onClick={cancel}> Cancel </button>
+                <Button type="submit" label="Add Reply" variant="primary"/>
+                <Button type="button" label="Cancel" onClick={cancel} variant="link"/>
+                {/* <button type="submit"  className="button button-primary"> Reply </button> */}
+                {/* <button type="button" className="button button-link" onClick={cancel}> Cancel </button> */}
             </div>
         </form>
     )

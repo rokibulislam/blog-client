@@ -31,6 +31,12 @@
     text-decoration: none;
   }
 
+  &-danger {
+    color: #fff !important;
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+
   &-dark {
     @include button-variant(#fff, #343a40, #343a40);
   }

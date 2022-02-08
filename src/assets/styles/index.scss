@@ -1,5 +1,4 @@
 @import "./variable";
-@import "components/button";
 @import "components/input";
 
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
@@ -21,4 +20,8 @@ body {
   margin-left: auto;
   margin-top: 30px;
   padding-bottom: 70px;
+}
+
+a {
+  text-decoration: none;
 }
