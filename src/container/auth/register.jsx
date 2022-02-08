@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { register } from '../../store/slices/user' 
 
 const Register = () => {
-
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+    
     const [state, setState] = useState({
         username: '',
         email: '',
         password: '',
-        confirmPassword: '',
+        // confirmPassword: '',
     })
 
     const dispatch = useDispatch()
@@ -28,8 +32,10 @@ const Register = () => {
             username: state.username,
             email: state.email, 
             password: state.password,
-            confirmPassword: state.confirmPassword
+            // confirmPassword: state.confirmPassword
         }))
+
+        navigate(from, { replace: true });
     }
 
     return (
@@ -50,10 +56,10 @@ const Register = () => {
                 <input type="password" name="password" className="form-control" value={state.password} onChange={handleChange} required />
             </div>
 
-            <div className="form-group">
+            {/* <div className="form-group">
                 <label> Confirm Password </label>
                 <input type="password" name="confirmPassword" className="form-control" value={state.confirmPassword} onChange={handleChange} required />
-            </div>
+            </div> */}
 
             <div className='form-group'>
                 <button type='submit' className="button button-primary"> Register </button>

@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
+import { useNavigate,useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { login } from '../../store/slices/user'
 
 const Login = () => {
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
     const [state, setState] = useState({
         email: '',
         password: '',
@@ -21,8 +26,9 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(login({ email: state.email, password: state.password }));
+        navigate(from, { replace: true });
     }
-
+    
     return (
         <form onSubmit={handleSubmit}>
             <div className="form-group">
