@@ -1,9 +1,13 @@
 import React from 'react'
+import './styles.scss'
 
-const PostSingle = () => {
+const PostSingle = ({ post }) => {
     return (
         <>
-            PostSingle
+        <div className="single-post">
+            <h2 className="post-title"> { post.title } </h2>
+            <p className="post-content"> { post.content }</p>
+        </div>
         </>
     )
 }
