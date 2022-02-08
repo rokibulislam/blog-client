@@ -1,10 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
+import './styles.scss'
 
-const CommentForm = () => {
+const CommentForm = ({ onSubmit }) => {
+    
+    const [input, setInput] = useState({ comment: '' });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        setInput({
+            ...input,
+            [name]: value
+        })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        onSubmit( input.comment )
+        setInput({ comment: '' });
+    }
+
     return (
-        <>
-            CommentForm
-        </>
+        <div className="comment-form-container">
+            <h2 className="comment-form-header"> Add a Comment </h2>
+            <form onSubmit={handleSubmit}>
+
+                <div className="form-group">
+                    <textarea name="comment" className="form-control" rows="7" value={input.comment} onChange={handleChange} required> </textarea>
+                </div>
+
+                <div className="form-group">
+                    <button type="submit" className="button button-primary"> Submit  </button>
+                </div>
+            </form>
+        </div>
     )
 }
 
