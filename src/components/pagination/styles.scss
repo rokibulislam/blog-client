@@ -22,6 +22,7 @@
 
   .page-item.disabled .page-link {
     color: #6c757d;
+    pointer-events: none;
     cursor: auto;
     background-color: #fff;
     border-color: #dee2e6;

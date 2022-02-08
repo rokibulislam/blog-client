@@ -7,6 +7,7 @@ const Post = ( { item }) => {
         <div className="post-container">
             <h2 className="post-title"> <Link to={`/post/${item._id}`}>  { item.title } </Link> </h2>
             <p  className="post-content"> { item.content }</p>
+            <p className="post-date"> {new Date(item.date).toUTCString()} </p>
         </div>
     )
 }
