@@ -9,20 +9,14 @@ import { paginate } from '../../utils/paginate'
 import './style.scss'
 
 const PostList = () => {
-    const [ user, setUser ] = useState(null)
     const dispatch = useDispatch();
     const posts =  useSelector( state => state.posts.items );
-    // const user =  useSelector( state => state.auth.user );
+    const user =  useSelector( state => state.auth.user );
     const [pagination, setPagination] = useState({
         currentPage: 1,
         pageSize: 5
     });
 
-    useEffect( () => {
-        let user =  auth.getCurrentUser()
-        // setUser( user );
-    },[user])
-    
     useEffect( () => {
         dispatch(fetchPosts());
     },[dispatch])
@@ -51,7 +45,7 @@ const PostList = () => {
             <div>
             { user ? (
                 <PostAdd handleSubmit={handleSubmit} /> 
-            ) : <PostAdd handleSubmit={handleSubmit} />  } 
+            ) : 'To Create A post login' } 
             </div>
         </div>
          

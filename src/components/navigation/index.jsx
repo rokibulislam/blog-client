@@ -1,14 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import auth from '../../services/authService';
 import "./styles.scss"
 
-const Navigation = ( { user }) => {
-    // const user =  useSelector( state => state.auth.user );
+const Navigation = ( { user, onlogout }) => {
     
     const handleLogout = (e) => {
         e.preventDefault();
-        auth.logout()
+        onlogout();
     }
 
     return (
