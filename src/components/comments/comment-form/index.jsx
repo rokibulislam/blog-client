@@ -32,7 +32,6 @@ const CommentForm = ({ onSubmit }) => {
 
                 <div className="form-group">
                     <Button type="submit" label="Add Comment" variant="primary" />
-                    <button type="submit" className="button button-primary"> Submit  </button>
                 </div>
             </form>
         </div>

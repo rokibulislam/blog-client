@@ -1,5 +1,4 @@
 import moment from 'moment';
-import _ from 'lodash';
 
 export function getDate(timestamp) {
     const m =  moment(timestamp);
