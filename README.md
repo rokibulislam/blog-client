@@ -1,6 +1,6 @@
 # React Blog App
 
-This project was React
+This project was created with Boostrap, ReactJS, React Router, React Redux, Redux Toolkit
 
 ## Available Scripts
 
